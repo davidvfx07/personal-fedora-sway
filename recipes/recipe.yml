@@ -130,9 +130,9 @@ modules:
     - source: finish-setup.service
       destination: /etc/systemd/system/finish-setup.service
     - source: finish-setup.sh
-      destination: /etc/local/finish-setup/finish-setup.sh
+      destination: /usr/etc/finish-setup/finish-setup.sh
     - source: config
-      destination: /etc/local/finish-setup/config
+      destination: /usr/etc/finish-setup/config
 
   
 #  - type: script
