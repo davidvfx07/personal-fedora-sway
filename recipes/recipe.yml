@@ -1,44 +1,172 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
-name: personal-fedora-sway
-# description will be included in the image's metadata
-description: This is my personal OS image.
 
-# the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 41 # latest is also supported if you want new updates ASAP
+name: personal-fedora-sway
+
+description: A personal Atomic Fedora image with Sway WM, NVIDIA/CUDA drivers, development tools, and more.
+
+base-image: ghcr.io/ublue-os/base-nvidia
+image-version: 42
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
+  - type: bling
+    install:
+      - negativo17
+  - type: dnf
+    repos:
+      files:
+        - https://src.fedoraproject.org/rpms/fedora-repos/raw/f42/f/fedora-cisco-openh264.repo
+      copr:
+        - atim/starship
+        - lizardbyte/stable
+    install:
+      allow-erasing: true
+      packages:
+        - xorg-x11-server-Xorg
+        - xorg-x11-server-Xwayland
+        - xorg-x11-nvidia
+        - sway
+
+        - brightnessctl
+        - copyq
+
+        - pipewire
+        - wireplumber
+        #- nwg-panel # Status bar
+        - mako # Notification daemon
+        #- uwsm # Wayland session manager
+        - pqiv # Image viewer
+        - vmiv # Image gallery viewer
+        - mpv # Video player
+        #- satty # Screenshot/annotate
+        - grimshot # Screenshot
+        - kitty # Terminal
+        - Sunshine # Low-latency remote desktop
+
+        - cuda-devel
+
+        # LY DEPS
+        #- kernel-devel
+        #- pam-devel 
+        #- libxcb-devel
+
+        #- greetd
+        #- tuigreet
+
+        # Virtualization Tools
+        - libvirt # Virtualization library and daemon
+        - virt-install # Command line tool for installing VMs
+
+        - bottles
+
+        - starship
+        - conda
+        - tailscale
+
+        # Multimedia Codecs and Thumbnail Generators
+        - ffmpeg
+        - gstreamer1
+        - gstreamer1-plugin-libav # FFmpeg plugin for GStreamer
+        - libvkd3d
+        #- intel-media-driver # RPMFUSION Intel Media Driver for VAAPI (if you have Intel iGPU)
+
+        - openh264 # Cisco OpenH264 codec
+
+        # Thumbnailers
+        - ffmpegthumbnailer
+        - tumbler
+
+        # Packages for working with Apple Devices
+        - usbmuxd
+        - libimobiledevice-utils
+        - ifuse 
+
+        - android-tools
+
+        # Extensive Development Extras
+        - make
+        - gcc
+        - git
+        - cmake
+        - htop
+        - nano
+        - helix
+        - gdb
+        - valgrind
+        - strace
+        - ltrace
+        - pkgconf-pkg-config
+        - zlib-devel
+        - bzip2-devel
+        - xz-devel
+        - openssl-devel
+        - elfutils-libelf-devel
+        - libffi-devel
+        - readline-devel
+        - ncurses-devel
+        - usbutils
+        - lshw
+        - pciutils
+        - ddrescue
+        - docker
+        - podman
+
+    remove:
+      packages:
+        #- mesa-libGL
+        #- mesa-dri-drivers
+        - noopenh264
+
   - type: files
     files:
-      - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+    - source: finish-setup.sh
+      destination: /var/usrlocal/bin/finish-setup.sh
+    - source: finish-setup.service
+      destination: /etc/systemd/system/finish-setup.service
+    - source: config/
+      destination: /var/tmp/config
 
-  - type: rpm-ostree
-    repos:
-      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-    install:
-      - micro
-      - starship
-    remove:
-      # example: removing firefox (in favor of the flatpak)
-      # "firefox" is the main package, "firefox-langpacks" is a dependency
-      - firefox
-      - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+  
+#  - type: script
+#    scripts:
+#      - install-ly.sh
+
+  - type: systemd
+    system:
+      enabled:
+        - libvirtd.service
+        #- greetd.service
+        #- ly.service
+        - finish-setup.service
 
   - type: default-flatpaks
-    notify: true # Send notification after install/uninstall is finished (true/false)
     system:
-      # If no repo information is specified, Flathub will be used by default
       install:
+        #- org.videolan.VLC
         - org.mozilla.firefox
-        - org.gnome.Loupe
-      remove:
-        - org.gnome.eog
-    user: {} # Also add Flathub user repo, but no user packages
+        - org.chromium.Chromium
+        #- com.github.tchx84.Flatseal
+        #- org.fedoraproject.MediaWriter
 
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - FiraCode
+        - Hack
+        - SourceCodePro
+        - Terminus
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
 
+  - type: signing
+
+
+
+#- https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-42.noarch.rpm
+#- https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-42.noarch.rpm
+#- https://negativo17.org/repos/fedora-nvidia.repo
+#- https://negativo17.org/repos/fedora-multimedia.repo
+#- https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-42/atim-starship-fedora-42.repo
