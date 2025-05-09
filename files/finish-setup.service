@@ -4,7 +4,7 @@ After=network-online.target multi-user.target
 
 [Service]
 Type=oneshot
-ExecStart=/etc/local/finish-setup/finish-setup.sh
+ExecStart=bash /etc/local/finish-setup/finish-setup.sh
 RemainAfterExit=no
 StandardOutput=journal
 StandardError=journal
