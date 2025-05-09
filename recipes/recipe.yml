@@ -51,6 +51,8 @@ modules:
 
         - cuda-devel
 
+        - fprintd-pam
+
         # LY DEPS
         #- kernel-devel
         #- pam-devel 
@@ -126,11 +128,11 @@ modules:
   - type: files
     files:
     - source: finish-setup.sh
-      destination: /var/usrlocal/bin/finish-setup.sh
+      destination: /etc/finish-setup/finish-setup.sh
     - source: finish-setup.service
       destination: /etc/systemd/system/finish-setup.service
     - source: config/
-      destination: /var/tmp/config
+      destination: /etc/finish-setup/tmp/config
 
   
 #  - type: script
