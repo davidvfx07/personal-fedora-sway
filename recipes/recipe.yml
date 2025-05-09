@@ -21,7 +21,8 @@ modules:
         - https://src.fedoraproject.org/rpms/fedora-repos/raw/f42/f/fedora-cisco-openh264.repo
       copr:
         - atim/starship
-        - lizardbyte/stable
+        - lizardbyte/beta # Stable not yet built as of 5/8/25
+        - mhartgring/pqiv
     install:
       allow-erasing: true
       packages:
@@ -29,7 +30,9 @@ modules:
         - xorg-x11-server-Xwayland
         - xorg-x11-nvidia
         - sway
-
+        - swayidle
+        - swaylock
+        - rofi
         - brightnessctl
         - copyq
 
@@ -39,7 +42,7 @@ modules:
         - mako # Notification daemon
         #- uwsm # Wayland session manager
         - pqiv # Image viewer
-        - vmiv # Image gallery viewer
+        - qimgv # Image gallery viewer
         - mpv # Video player
         #- satty # Screenshot/annotate
         - grimshot # Screenshot
