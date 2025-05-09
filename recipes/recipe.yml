@@ -131,8 +131,8 @@ modules:
       destination: /etc/local/finish-setup/finish-setup.sh
     - source: finish-setup.service
       destination: /etc/systemd/system/finish-setup.service
-    - source: config
-      destination: /etc/local/finish-setup/tmp/config
+    - source: config/sway
+      destination: /etc/local/finish-setup/tmp/config/sway
 
   
 #  - type: script
