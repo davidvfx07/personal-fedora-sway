@@ -128,11 +128,11 @@ modules:
   - type: files
     files:
     - source: finish-setup.sh
-      destination: /etc/finish-setup/finish-setup.sh
+      destination: /etc/local/finish-setup/finish-setup.sh
     - source: finish-setup.service
       destination: /etc/systemd/system/finish-setup.service
     - source: config/
-      destination: /etc/finish-setup/tmp/config
+      destination: /etc/local/finish-setup/tmp/config
 
   
 #  - type: script
