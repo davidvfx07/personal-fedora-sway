@@ -127,12 +127,12 @@ modules:
 
   - type: files
     files:
-    - source: finish-setup.sh
-      destination: /etc/local/finish-setup/finish-setup.sh
     - source: finish-setup.service
       destination: /etc/systemd/system/finish-setup.service
-    - source: config/sway
-      destination: /etc/local/finish-setup/tmp/config/sway
+    - source: finish-setup.sh
+      destination: /etc/local/finish-setup/finish-setup.sh
+    - source: config/sway/config
+      destination: /etc/local/finish-setup/config
 
   
 #  - type: script
