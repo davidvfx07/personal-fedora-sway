@@ -34,7 +34,7 @@ modules:
         - swaylock
         - rofi
         - brightnessctl
-        - copyq
+        - xsel
 
         - pipewire
         - wireplumber
@@ -128,16 +128,14 @@ modules:
   - type: files
     files:
     - source: finish-setup.service
-      destination: /usr/etc/systemd/user/finish-setup.service
+      destination: /etc/systemd/system/finish-setup.service
     - source: finish-setup.sh
       destination: /usr/etc/finish-setup/finish-setup.sh
     - source: config
       destination: /usr/etc/finish-setup/config
 
   
-  - type: script
-    snippets:
-      - "systemctl preset-all --user"
+#  - type: script
 #    scripts:
 #      - install-ly.sh
 
@@ -147,7 +145,7 @@ modules:
         - libvirtd.service
         #- greetd.service
         #- ly.service
-        #- finish-setup.service
+        - finish-setup.service
 
   - type: default-flatpaks
     system:
