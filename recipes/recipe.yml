@@ -128,7 +128,7 @@ modules:
   - type: files
     files:
     - source: finish-setup.service
-      destination: /etc/systemd/system/finish-setup.service
+      destination: /usr/lib/systemd/system/finish-setup.service
     - source: finish-setup.sh
       destination: /usr/etc/finish-setup/finish-setup.sh
     - source: config
