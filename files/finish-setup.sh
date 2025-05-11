@@ -1,3 +1,5 @@
+#! /bin/bash
+
 echo Recieved home dir: $1
 
 cp -rf /usr/etc/finish-setup/config/* $1/.config
