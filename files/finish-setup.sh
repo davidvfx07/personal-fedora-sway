@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 echo Recieved home dir: $1
 
