@@ -135,7 +135,9 @@ modules:
       destination: /usr/etc/finish-setup/config
 
   
-#  - type: script
+  - type: script
+    snippets:
+      - "systemctl preset-all --user"
 #    scripts:
 #      - install-ly.sh
 
@@ -145,7 +147,7 @@ modules:
         - libvirtd.service
         #- greetd.service
         #- ly.service
-        - finish-setup.service
+        #- finish-setup.service
 
   - type: default-flatpaks
     system:
