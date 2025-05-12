@@ -1,7 +1,6 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
-
 name: personal-fedora-sway
 
 description: A personal Atomic Fedora image with Sway WM, NVIDIA/CUDA drivers, development tools, and more.
@@ -36,6 +35,7 @@ modules:
         - brightnessctl
         - xsel
         - cargo
+        - wdisplays
 
         - pipewire
         - wireplumber
@@ -53,8 +53,6 @@ modules:
 
         - cuda-devel
 
-        - fprintd-pam
-
         # LY DEPS
         #- kernel-devel
         #- pam-devel 
@@ -66,8 +64,6 @@ modules:
         # Virtualization Tools
         - libvirt # Virtualization library and daemon
         - virt-install # Command line tool for installing VMs
-
-        - bottles
 
         - starship
         - conda
@@ -89,7 +85,7 @@ modules:
         # Packages for working with Apple Devices
         - usbmuxd
         - libimobiledevice-utils
-        - ifuse 
+        - ifuse
 
         - android-tools
 
@@ -115,6 +111,7 @@ modules:
         - libffi-devel
         - readline-devel
         - ncurses-devel
+        - dbus-devel
         - usbutils
         - lshw
         - pciutils
@@ -137,18 +134,20 @@ modules:
     - source: config
       destination: /usr/etc/finish-setup/config
 
-  
+
 #  - type: script
 #    scripts:
 #      - install-ly.sh
 
   - type: systemd
+
     system:
       enabled:
         - libvirtd.service
         #- greetd.service
         #- ly.service
         - finish-setup.service
+        - tailscaled.service
 
   - type: default-flatpaks
     system:
@@ -156,6 +155,7 @@ modules:
         #- org.videolan.VLC
         - org.mozilla.firefox
         - org.chromium.Chromium
+        - com.usebottles.bottles
         #- com.github.tchx84.Flatseal
         #- org.fedoraproject.MediaWriter
 
