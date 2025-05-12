@@ -36,6 +36,8 @@ modules:
         - xsel
         - cargo
         - wdisplays
+        - wlr-randr
+        - fprintd-pam
 
         - pipewire
         - wireplumber
@@ -77,10 +79,6 @@ modules:
         #- intel-media-driver # RPMFUSION Intel Media Driver for VAAPI (if you have Intel iGPU)
 
         - openh264 # Cisco OpenH264 codec
-
-        # Thumbnailers
-        - ffmpegthumbnailer
-        - tumbler
 
         # Packages for working with Apple Devices
         - usbmuxd
