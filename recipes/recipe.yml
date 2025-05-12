@@ -96,6 +96,7 @@ modules:
         - make
         - gcc
         - git
+        - gh
         - cmake
         - htop
         - nano
