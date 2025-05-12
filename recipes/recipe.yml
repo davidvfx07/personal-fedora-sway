@@ -46,7 +46,8 @@ modules:
         - mpv # Video player
         #- satty # Screenshot/annotate
         - grimshot # Screenshot
-        - kitty # Terminal
+        #- kitty # Terminal
+        - foot # Minimal terminal
         - Sunshine # Low-latency remote desktop
 
         - cuda-devel
@@ -159,11 +160,10 @@ modules:
   - type: fonts
     fonts:
       nerd-fonts:
-        - FiraCode
         - Hack
         - SourceCodePro
-        - Terminus
         - JetBrainsMono
+        - CodeNewRoman
         - NerdFontsSymbolsOnly
 
   - type: signing
