@@ -23,6 +23,7 @@ modules:
         - lizardbyte/beta # Stable not yet built as of 5/8/25
         - mhartgring/pqiv
         - errornointernet/packages
+        - atim/i3status-rust
     install:
       allow-erasing: true
       packages:
@@ -40,7 +41,7 @@ modules:
         - wdisplays
         - wlr-randr
         - fprintd-pam
-        - i3status
+        - i3status-rust
         - nut
         - pipewire-devel
 
@@ -108,6 +109,7 @@ modules:
         - git
         - gh
         - cmake
+        - clang
         - htop
         - nano
         - helix
@@ -144,9 +146,10 @@ modules:
       destination: /usr/lib/systemd/system/finish-setup.service
     - source: finish-setup.sh
       destination: /usr/etc/finish-setup/finish-setup.sh
+    - source: finish-setup-user.sh
+      destination: /usr/etc/finish-setup/finish-setup-user.sh
     - source: config
       destination: /usr/etc/finish-setup/config
-
 
 #  - type: script
 #    scripts:
@@ -169,8 +172,8 @@ modules:
         - org.mozilla.firefox
         - org.chromium.Chromium
         - com.usebottles.bottles
-        #- com.github.tchx84.Flatseal
-        #- org.fedoraproject.MediaWriter
+        # - com.github.tchx84.Flatseal
+        # - org.fedoraproject.MediaWriter
 
   - type: fonts
     fonts:
