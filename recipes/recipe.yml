@@ -22,6 +22,7 @@ modules:
         - atim/starship
         - lizardbyte/beta # Stable not yet built as of 5/8/25
         - mhartgring/pqiv
+        - errornointernet/packages
     install:
       allow-erasing: true
       packages:
@@ -31,13 +32,17 @@ modules:
         - sway
         - swayidle
         - swaylock
+        - xdg-desktop-portal
         - rofi
         - brightnessctl
-        - xsel
+        - wl-clipboard
         - cargo
         - wdisplays
         - wlr-randr
         - fprintd-pam
+        - i3status
+        - nut
+        - pipewire-devel
 
         - pipewire
         - wireplumber
@@ -52,6 +57,15 @@ modules:
         #- kitty # Terminal
         - foot # Minimal terminal
         - Sunshine # Low-latency remote desktop
+
+        - yazi # TUI file browser
+        - jq
+        - poppler
+        - fd-find
+        - ripgrep
+        - fzf
+        - zoxide
+        - ImageMagick
 
         - cuda-devel
 
@@ -70,6 +84,7 @@ modules:
         - starship
         - conda
         - tailscale
+        - zsh
 
         # Multimedia Codecs and Thumbnail Generators
         - ffmpeg

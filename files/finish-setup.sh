@@ -17,7 +17,7 @@ fi
 su $ACTIVE_USER -c "curl https://nim-lang.org/choosenim/init.sh -sSf | sh"
 
 rpm-ostree kargs --delete rhgb
-rpm-ostree kargs --delete quiet
+#rpm-ostree kargs --delete quiet
 rpm-ostree kargs --append-if-missing nvidia_drm.modeset=1 --append-if-missing nvidia_drm.fbdev=1 
 
 mkdir $HOME/.local/bin
