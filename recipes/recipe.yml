@@ -44,6 +44,8 @@ modules:
         - i3status-rust
         - nut
         - pipewire-devel
+        - qt5-qtwayland
+        - trash-cli
 
         - pipewire
         - wireplumber
@@ -67,6 +69,7 @@ modules:
         - fzf
         - zoxide
         - ImageMagick
+        - exiftool
 
         - cuda-devel
 
@@ -133,17 +136,22 @@ modules:
         - ddrescue
         - docker
         - podman
+        - python3
+        - python3-pip
 
     remove:
       packages:
         #- mesa-libGL
         #- mesa-dri-drivers
         - noopenh264
+        - firefox
 
   - type: files
     files:
     - source: finish-setup.service
       destination: /usr/lib/systemd/system/finish-setup.service
+    - source: finish-setup-user.service
+      destination: /usr/lib/systemd/user/finish-setup-user.service
     - source: finish-setup.sh
       destination: /usr/etc/finish-setup/finish-setup.sh
     - source: finish-setup-user.sh
@@ -164,6 +172,9 @@ modules:
         #- ly.service
         - finish-setup.service
         - tailscaled.service
+    user:
+      enabled:
+        - finish-setup-user.service
 
   - type: default-flatpaks
     system:

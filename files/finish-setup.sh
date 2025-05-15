@@ -1,9 +1,9 @@
 #!/bin/bash
 
-ACTIVE_USER=$(loginctl list-users --no-legend | cut -d' ' -f2 -z | tr -d '\000')
-HOME=/home/$ACTIVE_USER
+#ACTIVE_USER=$(loginctl list-users --no-legend | cut -d' ' -f2 -z | tr -d '\000')
+#HOME=/home/$ACTIVE_USER
 
-echo Active user: $ACTIVE_USER
+#echo Active user: $ACTIVE_USER
 
 #if [ -f "/usr/bin/bluebuild" ]; then
 #  echo "bluebuild exists, not installing."
@@ -16,4 +16,6 @@ echo ENV{DEVNAME}=="/dev/dri/card1", TAG+="mutter-device-preferred-primary" > /e
 rpm-ostree kargs --delete rhgb || true
 rpm-ostree kargs --append-if-missing nvidia_drm.modeset=1 --append-if-missing nvidia_drm.fbdev=1 || true
 
-su $ACTIVE_USER -c "bash /usr/etc/finish-setup/finish-setup-user.sh"
+#if [ -z "$ACTIVE_USER" ]; then
+#  su $ACTIVE_USER -c "bash /usr/etc/finish-setup/finish-setup-user.sh"
+#fi
