@@ -45,6 +45,7 @@ modules:
         - nut
         - pipewire-devel
         - qt5-qtwayland
+        - qt6-qtwayland
         - trash-cli
 
         - pipewire
@@ -105,6 +106,9 @@ modules:
         - ifuse
 
         - android-tools
+
+
+        - libxcrypt-compat
 
         # Extensive Development Extras
         - make
