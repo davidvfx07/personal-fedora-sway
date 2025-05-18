@@ -106,13 +106,14 @@ modules:
         - ifuse
 
         - android-tools
-
+        - https://github.com/Martichou/rquickshare/releases/download/v0.11.5/r-quick-share-main_v0.11.5_glibc-2.39_1-x86_64.rpm
 
         - libxcrypt-compat
 
         # Extensive Development Extras
         - make
         - gcc
+        - glibc-devel
         - git
         - gh
         - cmake
@@ -121,6 +122,13 @@ modules:
         - nano
         - helix
         - gdb
+        # DisplayCal
+        - dbus
+        - pkgconf
+        - gtk3-devel
+        - libXxf86vm-devel
+        - python3-devel
+        - python3-virtualenv
         - valgrind
         - strace
         - ltrace
