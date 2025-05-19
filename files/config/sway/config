@@ -261,7 +261,7 @@ mode "$mode_system" {
 #exec_always ~/.config/waybar/waybar.sh
 #exec_always swaybar
 
-exec_always bash $XDG_CONFIG_HOME/sway/set_workspaces.sh
+exec_always bash $XDG_CONFIG_HOME/sway/set-workspaces.sh
 
 #include ~/.config/sway/$(hostname)/*
 include /etc/sway/config.d/*

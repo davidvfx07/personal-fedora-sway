@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cp -n -r /usr/etc/finish-setup/config/* ~/.config
+cp -n -r /usr/etc/finish-setup/config/* ~/.config || true
 
-curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+#curl https://nim-lang.org/choosenim/init.sh -sSf | sh
 
 mkdir ~/.local/bin || true
 ln -s /var/lib/flatpak/exports/bin/org.mozilla.firefox ~/.local/bin/firefox || true

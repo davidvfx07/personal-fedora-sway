@@ -20,10 +20,11 @@ modules:
         - https://src.fedoraproject.org/rpms/fedora-repos/raw/f42/f/fedora-cisco-openh264.repo
       copr:
         - atim/starship
-        - lizardbyte/beta # Stable not yet built as of 5/8/25
+       # - lizardbyte/beta # Stable not yet built as of 5/8/25
         - mhartgring/pqiv
-        - errornointernet/packages
+        - lihaohong/yazi
         - atim/i3status-rust
+        - alternateved/tofi
     install:
       allow-erasing: true
       packages:
@@ -34,8 +35,8 @@ modules:
         - swayidle
         - swaylock
         - xdg-desktop-portal
-        - rofi
-        - brightnessctl
+        #- rofi
+        - tofi
         - wl-clipboard
         - cargo
         - wdisplays
@@ -47,20 +48,23 @@ modules:
         - qt5-qtwayland
         - qt6-qtwayland
         - trash-cli
+        - playerctl
+
+        - repo: copr:copr.fedorainfracloud.org:solopasha:hyprland
+          packages:
+            - uwsm
+            - hyprpicker
 
         - pipewire
         - wireplumber
-        #- nwg-panel # Status bar
         - mako # Notification daemon
-        #- uwsm # Wayland session manager
         - pqiv # Image viewer
         - qimgv # Image gallery viewer
         - mpv # Video player
         #- satty # Screenshot/annotate
         - grimshot # Screenshot
-        #- kitty # Terminal
         - foot # Minimal terminal
-        - Sunshine # Low-latency remote desktop
+        #- Sunshine # Low-latency remote desktop
 
         - yazi # TUI file browser
         - jq
@@ -81,6 +85,8 @@ modules:
 
         #- greetd
         #- tuigreet
+
+        - openrgb
 
         # Virtualization Tools
         - libvirt # Virtualization library and daemon
@@ -191,12 +197,8 @@ modules:
   - type: default-flatpaks
     system:
       install:
-        #- org.videolan.VLC
         - org.mozilla.firefox
         - org.chromium.Chromium
-        - com.usebottles.bottles
-        # - com.github.tchx84.Flatseal
-        # - org.fedoraproject.MediaWriter
 
   - type: fonts
     fonts:

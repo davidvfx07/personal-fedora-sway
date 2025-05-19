@@ -2,6 +2,8 @@ cosign.key
 cosign.private
 /Containerfile
 
+personal-fedora-sway.tar.gz
+
 # General
 .DS_Store
 .AppleDouble
