@@ -25,6 +25,7 @@ modules:
         - lihaohong/yazi
         - atim/i3status-rust
         - alternateved/tofi
+        - solopasha/hyprland
     install:
       allow-erasing: true
       packages:
@@ -49,12 +50,8 @@ modules:
         - qt6-qtwayland
         - trash-cli
         - playerctl
-
-        - repo: copr:copr.fedorainfracloud.org:solopasha:hyprland
-          packages:
-            - uwsm
-            - hyprpicker
-
+        - uwsm
+        - hyprpicker
         - pipewire
         - wireplumber
         - mako # Notification daemon
@@ -65,6 +62,7 @@ modules:
         - grimshot # Screenshot
         - foot # Minimal terminal
         #- Sunshine # Low-latency remote desktop
+        - gitui
 
         - yazi # TUI file browser
         - jq
@@ -174,8 +172,8 @@ modules:
       destination: /usr/etc/finish-setup/finish-setup.sh
     - source: finish-setup-user.sh
       destination: /usr/etc/finish-setup/finish-setup-user.sh
-    - source: config
-      destination: /usr/etc/finish-setup/config
+    - source: home
+      destination: /usr/etc/finish-setup/home
 
 #  - type: script
 #    scripts:

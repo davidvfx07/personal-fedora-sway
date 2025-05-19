@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [[ $1 == "-" ]]; then shift
+elif [[ $1 == "-h" ]]; then swaymsg split h; shift
+elif [[ $1 == "-v" ]]; then swaymsg split v; shift
+elif [[ $1 == "-ph" ]]; then swaymsg focus parent; swaymsg split h; shift
+elif [[ $1 == "-pv" ]]; then swaymsg focus parent; swaymsg split v; shift
+fi
+
+uwsm app -- "$@" &
+PID=$!
+NEXT_WAIT_TIME=0
+until (( NEXT_WAIT_TIME == 5 )) || [ $(swaymsg -t get_tree | jq '.. | select(.type?) | select(.focused==true) | .pid') == $PID ]
+do
+    sleep 0.05
+    ((NEXT_WAIT_TIME++))
+done
+sleep 0.1
