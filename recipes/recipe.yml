@@ -74,7 +74,17 @@ modules:
         - ImageMagick
         - exiftool
 
+        # ripdrag
+        - gdk-pixbuf2-devel
+        - pango-devel
+        - graphene-devel
+        - cairo-gobject-devel
+        - cairo-devel
+        - python2-cairo-devel
+        - gtk4-devel
+
         - cuda-devel
+        - argyllcms
 
         # LY DEPS
         #- kernel-devel

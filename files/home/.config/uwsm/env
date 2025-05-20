@@ -1,0 +1,18 @@
+export PATH=/home/david/.local/bin:$PATH
+export PATH=/home/david/.cargo/bin:$PATH
+export PATH=/home/david/.nimble/bin:$PATH
+export WLR_NO_HARDWARE_CURSORS=1
+export WLR_RENDERER=vulkan
+export XDG_SESSION_TYPE=wayland
+export GBM_BACKEND=nvidia-drm
+export GDK_BACKEND=wayland
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+
+#export XDG_CURRENT_DESKTOP=sway # xdg-desktop-portal
+#export XDG_SESSION_DESKTOP=sway # systemd
+#export XDG_SESSION_TYPE=wayland # xdg/systemd
+#export XDG_CONFIG_HOME=$HOME/.config
+
+export LIBSEAT_BACKEND=logind
+
+export OGL_DEDICATED_HW_STATE_PER_CONTEXT=ENABLE_ROBUST
