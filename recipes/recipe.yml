@@ -32,6 +32,8 @@ modules:
         - xorg-x11-server-Xorg
         - xorg-x11-server-Xwayland
         - xorg-x11-nvidia
+        - intel-gpu-tools
+        - libva-intel-media-driver
         - sway
         - swayidle
         - swaylock
@@ -74,13 +76,15 @@ modules:
         - ImageMagick
         - exiftool
 
+        - gnome-keyring
+
         # ripdrag
         - gdk-pixbuf2-devel
         - pango-devel
         - graphene-devel
         - cairo-gobject-devel
         - cairo-devel
-        - python2-cairo-devel
+        - python3-cairo-devel
         - gtk4-devel
 
         - cuda-devel
@@ -104,6 +108,7 @@ modules:
         - conda
         - tailscale
         - zsh
+        - p7zip
 
         # Multimedia Codecs and Thumbnail Generators
         - ffmpeg
@@ -121,6 +126,7 @@ modules:
 
         - android-tools
         - https://github.com/Martichou/rquickshare/releases/download/v0.11.5/r-quick-share-main_v0.11.5_glibc-2.39_1-x86_64.rpm
+        - jmtpfs
 
         - libxcrypt-compat
 
