@@ -20,6 +20,7 @@ modules:
         - https://src.fedoraproject.org/rpms/fedora-repos/raw/f42/f/fedora-cisco-openh264.repo
       copr:
         - atim/starship
+        - lihaohong/yazi
         - atim/i3status-rust
         - alternateved/tofi
         - solopasha/hyprland # uwsm satty
@@ -38,6 +39,7 @@ modules:
         - tofi # Your core app launcher
         - mako # Notification daemon
         - i3status-rust # Your status bar
+        - wlr-randr
         - wl-clipboard
         - wdisplays # or wlr-randr
         - foot # Your primary terminal
@@ -60,11 +62,18 @@ modules:
         - tailscale
         - zsh # If this is your default shell
         - starship
+        - lm_sensors
+        - git
+        - gh
+        - gitui
 
         # --- Essential User Applications & Utilities ---
         - satty # Screenshots are a core function
+        - grimshot
         - playerctl # For media key control
+        - yazi
         - trash-cli
+        - exiftool
 
         # --- Hardware & Device Integration ---
         - usbmuxd # For Apple device support
@@ -72,7 +81,7 @@ modules:
         - ifuse
         - android-tools
         - nut # If you use a UPS
-        - openrgb # For RGB peripheral control
+        - openrgb-0.9 # For RGB peripheral control
         - liquidctl
         - libxcrypt-compat
 
