@@ -94,14 +94,14 @@ modules:
     files:
     - source: finish-setup.service
       destination: /usr/lib/systemd/system/finish-setup.service
-    - source: finish-setup-user.service
-      destination: /usr/lib/systemd/user/finish-setup-user.service
+ #   - source: finish-setup-user.service
+ #     destination: /usr/lib/systemd/user/finish-setup-user.service
     - source: finish-setup.sh
-      destination: /usr/etc/finish-setup/finish-setup.sh
+      destination: /etc/finish-setup/finish-setup.sh
     - source: finish-setup-user.sh
-      destination: /usr/etc/finish-setup/finish-setup-user.sh
+      destination: /etc/finish-setup/finish-setup-user.sh
     - source: home
-      destination: /usr/etc/finish-setup/home
+      destination: /etc/finish-setup/home
 
 #  - type: script
 #    scripts:
@@ -113,9 +113,9 @@ modules:
       enabled:
         - finish-setup.service
         - tailscaled.service
-    user:
-      enabled:
-        - finish-setup-user.service
+#    user:
+#      enabled:
+#        - finish-setup-user.service
 
   - type: default-flatpaks
     system:

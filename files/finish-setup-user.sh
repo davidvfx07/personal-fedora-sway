@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cp -n -r /usr/etc/finish-setup/home/* ~/ || true
+cp -r --update=none /usr/etc/finish-setup/home/* ~/ || true
 
-#curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+curl https://nim-lang.org/choosenim/init.sh -sSf | sh
 cargo install ripdrag
 
 mkdir ~/.local/bin || true
