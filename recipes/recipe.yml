@@ -82,6 +82,7 @@ modules:
         - android-tools
         - nut # If you use a UPS
         - openrgb-0.9 # For RGB peripheral control
+        - libi2c-devel # For openrgb
         - liquidctl
         - libxcrypt-compat
 
@@ -118,10 +119,11 @@ modules:
 #        - finish-setup-user.service
 
   - type: default-flatpaks
-    system:
+    user:
       install:
         - org.mozilla.firefox
         - org.chromium.Chromium
+        - io.mpv.Mpv
 
   - type: fonts
     fonts:
