@@ -18,6 +18,7 @@ modules:
     repos:
       files:
         - https://src.fedoraproject.org/rpms/fedora-repos/raw/f42/f/fedora-cisco-openh264.repo
+        - https://developer.download.nvidia.com/compute/cuda/repos/fedora41/x86_64/cuda-fedora41.repo
       copr:
         - atim/starship
         - lihaohong/yazi
@@ -53,9 +54,19 @@ modules:
         - wireplumber
         - ffmpeg
         - gstreamer1
+        - gstreamer1-plugin-vaapi
         - gstreamer1-plugin-libav
+        - gstreamer1-plugin-mp4
+        - gstreamer1-plugin-fmp4
+        - gstreamer1-plugin-dav1d
+        - gstreamer1-plugin-openh264
+        - gstreamer1-plugins-ugly
+        - nvidia-sdk-video-codec
         - openh264
         - libvkd3d
+
+        - cuda
+        - cuda-toolkit
 
         # --- Core System & Services ---
         - fprintd-pam # For fingerprint support

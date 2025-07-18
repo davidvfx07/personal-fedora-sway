@@ -8,11 +8,11 @@ HOME=/home/$ACTIVE_USER
 
 echo Active user: $ACTIVE_USER
 
-#if [ -f "/usr/bin/bluebuild" ]; then
-#  echo "bluebuild exists, not installing."
-#else
-#  bash <(curl -s https://raw.githubusercontent.com/blue-build/cli/main/install.sh)
-#fi
+if [ -f "/usr/bin/bluebuild" ]; then
+  echo "bluebuild exists, not installing."
+else
+  bash <(curl -s https://raw.githubusercontent.com/blue-build/cli/main/install.sh)
+fi
 
 echo ENV{DEVNAME}=="/dev/dri/card1", TAG+="mutter-device-preferred-primary" > /etc/udev/rules.d/61-mutter-primary-gpu.rules
 
