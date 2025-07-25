@@ -49,29 +49,7 @@ modules:
         - gnome-keyring # For password/secret management
 
         # --- Graphics, Media Drivers & Codecs ---
-         - xorg-x11-nvidia
-#        - nvidia-modprobe-575.64.03
-#        - nvidia-driver-575.64.03
-#        - nvidia-driver-cuda-575.64.03
-#        - libnvidia-ml-575.64.03
-#        - libnvidia-cfg-575.64.03
-#        - libnvidia-gpucomp-575.64.03
-#        - nvidia-driver-cuda-libs-575.64.03
-#        - nvidia-driver-libs-575.64.03
-#        - nvidia-persistenced-575.64.03
-#        - nvidia-libXNVCtrl-575.64.03
-#        - nvidia-kmod-common-575.64.03
-#        - akmod-nvidia-575.64.03
-#        - nvidia-driver-575.64.03
-#        - xorg-x11-nvidia-575.64.03
-#        - nvidia-settings-575.64.03
-#        - kmod-nvidia-575.64.03
-#        - libnvidia-fbc-575.64.03
-#        - libnvidia-gpucomp-575.64.03
-#        - libnvidia-ml-575.64.03
-#        - nvidia-driver-libs-575.64.03
-#        - nvidia-driver-cuda-libs-575.64.03
-
+        - xorg-x11-nvidia # Keep if you have an Nvidia GPU
         - qt5-qtwayland
         - qt6-qtwayland
         - pipewire
@@ -138,7 +116,6 @@ modules:
     install:
       packages:
         - opentabletdriver
-        - nvidia-modprobe-575.64.05
 
   - type: files
     files:
@@ -152,8 +129,6 @@ modules:
       destination: /etc/finish-setup/finish-setup-user.sh
     - source: home
       destination: /etc/finish-setup/home
-    - source: blacklist.conf
-      destination: /etc/modprobe.d/blacklist.conf
 
 #  - type: script
 #    scripts:

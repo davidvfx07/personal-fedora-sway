@@ -16,8 +16,8 @@ fi
 
 echo ENV{DEVNAME}=="/dev/dri/card1", TAG+="mutter-device-preferred-primary" > /etc/udev/rules.d/61-mutter-primary-gpu.rules
 
-rpm-ostree kargs --delete rhgb || true
-rpm-ostree kargs --append-if-missing nvidia_drm.modeset=1 --append-if-missing nvidia_drm.fbdev=1 || true
+rpm-ostree kargs --delete-if-present rhgb
+rpm-ostree kargs --append-if-missing nvidia_drm.modeset=1 --append-if-missing nvidia_drm.fbdev=1 --append-if-missing rd.driver.blacklist=nouveau,nova-core --append-if-missing modprobe.blacklist=nouveau,nova-core
 
 # Enables full GPU access especially in containers.
 RENDER_USER=$(grep -E '^render:' /usr/lib/group)

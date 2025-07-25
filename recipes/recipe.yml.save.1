@@ -3,7 +3,7 @@
 # image will be published to ghcr.io/<user>/<name>
 name: personal-fedora-sway
 
-description: A personal Atomic Fedora image with Sway WM, NVIDIA/CUDA drivers, video codecs, utilities, and more.
+description: A personal Atomic Fedora image with Sway WM, NVIDIA/CUDA drivers, development tools, and more.
 
 base-image: ghcr.io/ublue-os/base-nvidia
 image-version: 42
@@ -18,15 +18,13 @@ modules:
     repos:
       files:
         - https://src.fedoraproject.org/rpms/fedora-repos/raw/f42/f/fedora-cisco-openh264.repo
- #       - https://developer.download.nvidia.com/compute/cuda/repos/fedora41/x86_64/cuda-fedora41.repo
+        - https://developer.download.nvidia.com/compute/cuda/repos/fedora41/x86_64/cuda-fedora41.repo
       copr:
         - atim/starship
         - lihaohong/yazi
         - atim/i3status-rust
         - alternateved/tofi
         - solopasha/hyprland # uwsm satty
-        - ploxold/sway-stable
-#        - gloriouseggroll/nobara-42
 
     install:
       allow-erasing: true
@@ -49,29 +47,7 @@ modules:
         - gnome-keyring # For password/secret management
 
         # --- Graphics, Media Drivers & Codecs ---
-         - xorg-x11-nvidia
-#        - nvidia-modprobe-575.64.03
-#        - nvidia-driver-575.64.03
-#        - nvidia-driver-cuda-575.64.03
-#        - libnvidia-ml-575.64.03
-#        - libnvidia-cfg-575.64.03
-#        - libnvidia-gpucomp-575.64.03
-#        - nvidia-driver-cuda-libs-575.64.03
-#        - nvidia-driver-libs-575.64.03
-#        - nvidia-persistenced-575.64.03
-#        - nvidia-libXNVCtrl-575.64.03
-#        - nvidia-kmod-common-575.64.03
-#        - akmod-nvidia-575.64.03
-#        - nvidia-driver-575.64.03
-#        - xorg-x11-nvidia-575.64.03
-#        - nvidia-settings-575.64.03
-#        - kmod-nvidia-575.64.03
-#        - libnvidia-fbc-575.64.03
-#        - libnvidia-gpucomp-575.64.03
-#        - libnvidia-ml-575.64.03
-#        - nvidia-driver-libs-575.64.03
-#        - nvidia-driver-cuda-libs-575.64.03
-
+        - xorg-x11-nvidia # Keep if you have an Nvidia GPU
         - qt5-qtwayland
         - qt6-qtwayland
         - pipewire
@@ -90,7 +66,7 @@ modules:
         - libvkd3d
 
         - cuda
-#        - cuda-toolkit
+        - cuda-toolkit
 
         # --- Core System & Services ---
         - fprintd-pam # For fingerprint support
@@ -120,25 +96,13 @@ modules:
         - libi2c-devel # For openrgb
         - liquidctl
         - libxcrypt-compat
-        - gphoto2
-        - gphotofs
- #       - opentabletdriver
-
+        - gphoto2 # MTP
+        - gphotofs # gphoto2 FUSE
 
     remove:
       packages:
         - noopenh264
         - firefox
-
-  - type: dnf
-    repos:
-      cleanup: true
-      copr:
-        - gloriouseggroll/nobara-42
-    install:
-      packages:
-        - opentabletdriver
-        - nvidia-modprobe-575.64.05
 
   - type: files
     files:
@@ -152,8 +116,6 @@ modules:
       destination: /etc/finish-setup/finish-setup-user.sh
     - source: home
       destination: /etc/finish-setup/home
-    - source: blacklist.conf
-      destination: /etc/modprobe.d/blacklist.conf
 
 #  - type: script
 #    scripts:
