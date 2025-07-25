@@ -18,13 +18,15 @@ modules:
     repos:
       files:
         - https://src.fedoraproject.org/rpms/fedora-repos/raw/f42/f/fedora-cisco-openh264.repo
-        - https://developer.download.nvidia.com/compute/cuda/repos/fedora41/x86_64/cuda-fedora41.repo
+ #       - https://developer.download.nvidia.com/compute/cuda/repos/fedora41/x86_64/cuda-fedora41.repo
       copr:
         - atim/starship
         - lihaohong/yazi
         - atim/i3status-rust
         - alternateved/tofi
         - solopasha/hyprland # uwsm satty
+        - ploxold/sway-stable
+#        - gloriouseggroll/nobara-42
 
     install:
       allow-erasing: true
@@ -66,7 +68,7 @@ modules:
         - libvkd3d
 
         - cuda
-        - cuda-toolkit
+#        - cuda-toolkit
 
         # --- Core System & Services ---
         - fprintd-pam # For fingerprint support
@@ -96,6 +98,9 @@ modules:
         - libi2c-devel # For openrgb
         - liquidctl
         - libxcrypt-compat
+        - gphoto2
+        - gphotofs
+ #       - opentabletdriver
 
     remove:
       packages:
