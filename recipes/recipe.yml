@@ -102,10 +102,20 @@ modules:
         - gphotofs
  #       - opentabletdriver
 
+
     remove:
       packages:
         - noopenh264
         - firefox
+
+  - type: dnf
+    repos:
+      cleanup: true
+      copr:
+        - gloriouseggroll/nobara-42
+    install:
+      packages:
+        - opentabletdriver
 
   - type: files
     files:
