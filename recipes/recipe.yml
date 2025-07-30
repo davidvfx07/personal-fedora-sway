@@ -6,7 +6,7 @@ name: personal-fedora-sway
 description: A personal Atomic Fedora image with Sway WM, NVIDIA/CUDA drivers, video codecs, utilities, and more.
 
 base-image: ghcr.io/ublue-os/base-nvidia
-image-version: 42
+image-version: 42 #-20250723.3
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -14,6 +14,7 @@ modules:
   - type: bling
     install:
       - negativo17
+
   - type: dnf
     repos:
       files:
@@ -49,28 +50,28 @@ modules:
         - gnome-keyring # For password/secret management
 
         # --- Graphics, Media Drivers & Codecs ---
-         - xorg-x11-nvidia
-#        - nvidia-modprobe-575.64.03
-#        - nvidia-driver-575.64.03
-#        - nvidia-driver-cuda-575.64.03
-#        - libnvidia-ml-575.64.03
-#        - libnvidia-cfg-575.64.03
-#        - libnvidia-gpucomp-575.64.03
-#        - nvidia-driver-cuda-libs-575.64.03
-#        - nvidia-driver-libs-575.64.03
-#        - nvidia-persistenced-575.64.03
-#        - nvidia-libXNVCtrl-575.64.03
-#        - nvidia-kmod-common-575.64.03
+#        - xorg-x11-nvidia
+        - nvidia-modprobe-575.64.03
+        - nvidia-driver-575.64.03
+        - nvidia-driver-cuda-575.64.03
+        - libnvidia-ml-575.64.03
+        - libnvidia-cfg-575.64.03
+        - libnvidia-gpucomp-575.64.03
+        - nvidia-driver-cuda-libs-575.64.03
+        - nvidia-driver-libs-575.64.03
+        - nvidia-persistenced-575.64.03
+        - nvidia-libXNVCtrl-575.64.03
+        - nvidia-kmod-common-575.64.03
 #        - akmod-nvidia-575.64.03
-#        - nvidia-driver-575.64.03
+        - nvidia-driver-575.64.03
 #        - xorg-x11-nvidia-575.64.03
-#        - nvidia-settings-575.64.03
-#        - kmod-nvidia-575.64.03
-#        - libnvidia-fbc-575.64.03
-#        - libnvidia-gpucomp-575.64.03
-#        - libnvidia-ml-575.64.03
-#        - nvidia-driver-libs-575.64.03
-#        - nvidia-driver-cuda-libs-575.64.03
+        - nvidia-settings-575.64.03
+        - kmod-nvidia-575.64.03
+        - libnvidia-fbc-575.64.03
+        - libnvidia-gpucomp-575.64.03
+        - libnvidia-ml-575.64.03
+        - nvidia-driver-libs-575.64.03
+        - nvidia-driver-cuda-libs-575.64.03
 
         - qt5-qtwayland
         - qt6-qtwayland
@@ -138,7 +139,6 @@ modules:
     install:
       packages:
         - opentabletdriver
-        - nvidia-modprobe-575.64.05
 
   - type: files
     files:
